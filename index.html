@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Sign in Form</title>
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body class="form-v7">
+	<div class="page-content">
+		<div class="form-v7-content">
+			<div class="form-left">
+				<img src="images/m2.webp" alt="form">
+				<p class="text-1">Sign Up</p>
+				<p class="text-2">Private policy & Term of service</p>
+			</div>
+			<form class="form-detail" action="#" method="post" id="myform">
+				<div class="form-row">
+					<label for="username">USERNAME</label>
+					<input type="text" name="username" id="username" class="input-text" autocomplete="on">
+				</div>
+				<div class="form-row">
+					<label for="your_email">E-MAIL</label>
+					<input type="text" name="your_email" id="your_email" class="input-text" autocomplete="on" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+				</div>
+				<div class="form-row">
+					<label for="password">PASSWORD</label>
+					<input type="password" name="password" id="password" autocomplete="on" class="input-text" required>
+				</div>
+				<div class="form-row">
+					<label for="comfirm_password">CONFIRM PASSWORD</label>
+					<input type="password" name="comfirm_password" id="comfirm_password" autocomplete="on" class="input-text" required>
+				</div>
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register">
+					<p>Or<a href="#">Sign in</a></p>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		// just for the demos, avoids form submit
+		jQuery.validator.setDefaults({
+		  	debug: true,
+		  	success:  function(label){
+        		label.attr('id', 'valid');
+   		 	},
+		});
+		$( "#myform" ).validate({
+		  	rules: {
+			    your_email: {
+			      	required: true,
+			      	email: true
+			    },
+			    password: "required",
+		    	comfirm_password: {
+		      		equalTo: "#password"
+		    	}
+		  	},
+		  	messages: {
+		  		username: {
+		  			required: "Please enter an username"
+		  		},
+		  		your_email: {
+		  			required: "Please provide an email"
+		  		},
+		  		password: {
+	  				required: "Please provide a password"
+		  		},
+		  		comfirm_password: {
+		  			required: "Please provide a Confirm password",
+		      		equalTo: "Not Same..."
+		    	}
+		  	}
+		});
+	</script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+</body>
+</html>
